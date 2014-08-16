@@ -1,0 +1,52 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{796B0D9D-FB61-526E-750E-E4640F437C37}") = "UnitychanProject", "Assembly-CSharp-vs.csproj", "{4F537E98-27F2-989F-2401-A6970568333B}"
+EndProject
+Project("{796B0D9D-FB61-526E-750E-E4640F437C37}") = "UnitychanProject", "Assembly-CSharp-Editor-vs.csproj", "{FA7D0AA0-53C2-ABFA-0125-0AD6F1859FE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F537E98-27F2-989F-2401-A6970568333B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F537E98-27F2-989F-2401-A6970568333B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F537E98-27F2-989F-2401-A6970568333B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F537E98-27F2-989F-2401-A6970568333B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA7D0AA0-53C2-ABFA-0125-0AD6F1859FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA7D0AA0-53C2-ABFA-0125-0AD6F1859FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA7D0AA0-53C2-ABFA-0125-0AD6F1859FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA7D0AA0-53C2-ABFA-0125-0AD6F1859FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+																														GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.TabsToSpaces = False
+		$1.EolMarker = Unix
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+		$0.DotNetNamingPolicy = $4
+		$4.DirectoryNamespaceAssociation = None
+		$4.ResourceNamePolicy = FileFormatDefault
+	EndGlobalSection
+
+EndGlobal
