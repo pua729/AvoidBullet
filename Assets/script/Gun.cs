@@ -58,10 +58,7 @@ public class Gun : MonoBehaviour
 	{
 		Vector3 shootPos = transform.position + this.shootVector3;
 		GameObject bullet = (GameObject)Instantiate(this.bulletPrefab, shootPos, transform.rotation);
-		//Vector3 direction = this.GetNormalizedDirection(transform.position, this.targetObject.transform.position);
-		Vector3 direction = new Vector3(0, 0, -1);
-		Debug.Log(shootPos);
-		Debug.Log(direction * BULLET_VELOCITY);
+		Vector3 direction = this.GetNormalizedDirection(transform.position, this.targetObject.transform.position);
 		
 		bullet.rigidbody.AddForce(direction * BULLET_VELOCITY, ForceMode.VelocityChange);
 	}
