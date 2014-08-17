@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\script\DestroyAll.cs" />
      <Compile Include="Assets\script\GameZone.cs" />
      <Compile Include="Assets\script\Gun.cs" />
      <Compile Include="Assets\script\UnityChanController.cs" />
