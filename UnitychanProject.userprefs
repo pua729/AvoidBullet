@@ -4,8 +4,7 @@
     <Files>
       <File FileName="Assets/script/UnityChanController.cs" Line="1" Column="1" />
       <File FileName="Assets/script/Gun.cs" Line="1" Column="1" />
-      <File FileName="Assets/script/DestroyAll.cs" Line="1" Column="1" />
-      <File FileName="Assets/script/GameZone.cs" Line="6" Column="1" />
+      <File FileName="Assets/script/GameZone.cs" Line="10" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
