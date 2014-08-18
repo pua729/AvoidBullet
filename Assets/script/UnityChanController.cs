@@ -46,7 +46,7 @@ public class UnityChanController : MonoBehaviour {
 		}
 		
 		if (Input.GetKey ("up") || Input.GetKey (KeyCode.W)) {
-			transform.position += transform.forward * 0.08f;
+			transform.position += transform.forward * 0.01f;
 			animator.SetBool ("is_running", true);
 		}
 		
@@ -54,10 +54,10 @@ public class UnityChanController : MonoBehaviour {
 			animator.SetBool ("is_jump", true);
 		} else if (Input.GetKey ("right") || Input.GetKey (KeyCode.D)) {
 			animator.SetBool ("is_jump", true);
-			animator.SetFloat("moving",  0.08f);
+			animator.SetFloat("moving",  0.05f);
 		} else if (Input.GetKey ("left") || Input.GetKey (KeyCode.A)) {
 			animator.SetBool ("is_jump", true);
-			animator.SetFloat("moving", -0.08f);
+			animator.SetFloat("moving", -0.05f);
 		}
 	}
 	

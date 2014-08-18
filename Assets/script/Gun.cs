@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 {	
 	public const float BULLET_SHOOT_INTERVAL = 0.2f;
 	public const float BULLET_CHARGE_INTERVAL = 5.0f;
-	public const float BULLET_VELOCITY = 10.0f;
+	public const float BULLET_VELOCITY = 30.0f;
 	public const int   BULLET_MAX_COUNT = 6;
 	
 	public GameObject bulletPrefab;
