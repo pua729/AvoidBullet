@@ -17,6 +17,7 @@ public class UnityChanController : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator>();
+		animator.SetBool ("is_running", true);
 	}
 	
 	void Update ()
@@ -45,10 +46,7 @@ public class UnityChanController : MonoBehaviour {
 			return;
 		}
 		
-		if (Input.GetKey ("up") || Input.GetKey (KeyCode.W)) {
-			transform.position += transform.forward * 0.01f;
-			animator.SetBool ("is_running", true);
-		}
+		transform.position += transform.forward * 0.01f;
 		
 		if (Input.GetKey (KeyCode.Space)) {
 			animator.SetBool ("is_jump", true);

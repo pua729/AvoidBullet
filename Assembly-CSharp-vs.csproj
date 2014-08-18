@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\script\GameZone.cs" />
      <Compile Include="Assets\script\Gun.cs" />
+     <Compile Include="Assets\script\ScrollTexture.cs" />
      <Compile Include="Assets\script\UnityChanController.cs" />
      <Compile Include="Assets\vendor\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\vendor\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
