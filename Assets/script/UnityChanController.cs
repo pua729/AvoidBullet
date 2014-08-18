@@ -7,6 +7,9 @@ public class UnityChanController : MonoBehaviour {
 	public const int GAME_STATUS_WAIT = 0;
 	public const int GAME_STATUS_RUNNING = 1;
 	public const int GAME_STATUS_END = 2;
+	public const int GAME_STATUS_WIN = 3;
+	
+	public GameObject enemyGameObject;
 
 	private Animator animator;
 	protected int life = MAX_LIFE;
@@ -25,6 +28,8 @@ public class UnityChanController : MonoBehaviour {
 			this.runningControl();
 			break;
 		case GAME_STATUS_END:
+			break;
+		case GAME_STATUS_WIN:
 			break;
 		}
 	}
@@ -60,9 +65,14 @@ public class UnityChanController : MonoBehaviour {
 	// 衝突安定
 	//
 	private void OnTriggerEnter(Collider collider) {
-		this.hitBullet();
+		this.hitBullet(collider);
+		this.Goal(collider);
 	}
-	private void hitBullet() {
+	private void hitBullet(Collider collider) {
+		if (!collider.CompareTag("enemy_bullet")) {
+			return;
+		}
+		
 		this.life -= 1;
 
 		if (this.life < 0) {
@@ -71,6 +81,11 @@ public class UnityChanController : MonoBehaviour {
 	}
 	private void loseGame() {
 		this.game_status = GAME_STATUS_END;
+	}
+	private void Goal(Collider collider) {
+		if (this.enemyGameObject.name == collider.name) {
+			this.game_status = GAME_STATUS_WIN;
+		}
 	}
 	
 	//
@@ -86,7 +101,12 @@ public class UnityChanController : MonoBehaviour {
 		case GAME_STATUS_END:
 			GUI.Box (new Rect (Screen.width/2-50,Screen.height/2-25,100,50), "You lose");
 			if (GUI.Button(new Rect(Screen.width/2-40,Screen.height/2,80,20), "Restart")) {
-				//this.initialize();
+				Application.LoadLevel("Sample");
+			}
+			break;
+		case GAME_STATUS_WIN:
+			GUI.Box (new Rect (Screen.width/2-50,Screen.height/2-25,100,50), "You win!");
+			if (GUI.Button(new Rect(Screen.width/2-40,Screen.height/2,80,20), "Restart")) {
 				Application.LoadLevel("Sample");
 			}
 			break;
