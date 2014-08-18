@@ -85,6 +85,7 @@ public class UnityChanController : MonoBehaviour {
 	private void Goal(Collider collider) {
 		if (this.enemyGameObject.name == collider.name) {
 			this.game_status = GAME_STATUS_WIN;
+			animator.SetBool("is_winning", true);
 		}
 	}
 	
