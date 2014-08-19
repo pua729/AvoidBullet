@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
 	public const int   BULLET_MAX_COUNT = 6;
 	
 	public GameObject bulletPrefab;
+	public GameObject explodePrefab;
 	public GameObject targetObject;
 	public Vector3 shootVector3;
 	
@@ -57,6 +58,11 @@ public class Gun : MonoBehaviour
 	void Shoot()
 	{
 		Vector3 shootPos = transform.position + this.shootVector3;
+
+		// 爆発エフェクト
+		GameObject explode = (GameObject)Instantiate(this.explodePrefab, shootPos, transform.rotation);
+		
+		// 弾
 		GameObject bullet = (GameObject)Instantiate(this.bulletPrefab, shootPos, transform.rotation);
 		Vector3 direction = this.GetNormalizedDirection(transform.position, this.targetObject.transform.position);
 		

@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\vendor\Detonator Explosion Framework\Sample Supporting Emitters\Detonator Spray Helper.js" />
+     <Compile Include="Assets\vendor\Detonator Explosion Framework\TestScene\DetonatorTest.js" />
      <Compile Include="Assets\vendor\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\vendor\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
      <Compile Include="Assets\vendor\Standard Assets (Mobile)\Scripts\FollowTransform.js" />
@@ -79,6 +81,7 @@
      <None Include="Assets\vendor\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\vendor\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
      <None Include="Assets\vendor\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\vendor\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\vendor\UnityChan\Voice\unity-chan_voice_list.txt" />
      <None Include="Assets\vendor\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\vendor\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
