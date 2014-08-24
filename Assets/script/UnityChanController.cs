@@ -47,9 +47,10 @@ public class UnityChanController : MonoBehaviour {
 		}
 		
 		transform.position += transform.forward * 0.01f;
-		
-		if (Input.GetKey (KeyCode.Space)) {
+
+		if (Input.GetKey (KeyCode.Space) && this.transform.position.y <= 0) {
 			animator.SetBool ("is_jump", true);
+			this.rigidbody.AddForce(Vector3.up * 13000);
 		} else if (Input.GetKey ("right") || Input.GetKey (KeyCode.D)) {
 			animator.SetBool ("is_jump", true);
 			animator.SetFloat("moving",  0.05f);
