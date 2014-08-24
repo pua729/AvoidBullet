@@ -20,6 +20,14 @@ public class Gun : MonoBehaviour
 	
 	void Update () 
 	{
+		this.SampleStrategy();
+		
+		this.DrawLine();
+	}
+	
+	// 弾があればなくなるまで連射する
+	void SampleStrategy()
+	{
 		if (this.bulletEnable && this.bulletCount > 0) {
 			this.Shoot();
 			this.bulletCount--;
@@ -37,10 +45,14 @@ public class Gun : MonoBehaviour
 			this.bulletChargeTime = 0.0f;
 			this.Reload();
 		}
-		
-		
-		
-		/*
+	}
+	
+	//
+	// 射線を描く
+	//
+	void DrawLine()
+	{
+		/* TODO
 		// ターゲットあでの線を引く
 		LineRenderer line = gameObject.GetComponent<LineRenderer>();;
 		//line.material.color = Color.red;
