@@ -45,6 +45,9 @@ public class UnityChanController : MonoBehaviour {
 			transform.position += transform.right * animator.GetFloat("moving");
 			return;
 		}
+		if (animator.GetBool("is_sliding")) {
+			animator.SetBool("is_sliding", false);
+		}
 		
 		transform.position += transform.forward * 0.01f;
 
@@ -57,6 +60,8 @@ public class UnityChanController : MonoBehaviour {
 		} else if (Input.GetKey ("left") || Input.GetKey (KeyCode.A)) {
 			animator.SetBool ("is_jump", true);
 			animator.SetFloat("moving", -0.05f);
+		} else if (Input.GetKey ("down") || Input.GetKey (KeyCode.S)) {
+			animator.SetBool ("is_sliding", true);
 		}
 	}
 	
