@@ -4,7 +4,7 @@ using System.Collections;
 public class Gun : MonoBehaviour 
 {	
 	public const float BULLET_SHOOT_INTERVAL = 0.2f;
-	public const float BULLET_CHARGE_INTERVAL = 5.0f;
+	public const float BULLET_CHARGE_INTERVAL = 1.0f;
 	public const float BULLET_VELOCITY = 30.0f;
 	public const int   BULLET_MAX_COUNT = 6;
 	
@@ -14,14 +14,12 @@ public class Gun : MonoBehaviour
 	public Vector3 shootVector3;
 	
 	protected bool bulletEnable = true;
-	protected float bulletTime = 0.0f;
 	protected int bulletCount = BULLET_MAX_COUNT;
-	protected float bulletChargeTime = 0.0f;
 	
 	void Update () 
 	{
 		this.SampleStrategy();
-		
+
 		this.DrawLine();
 	}
 	
@@ -31,20 +29,20 @@ public class Gun : MonoBehaviour
 		if (this.bulletEnable && this.bulletCount > 0) {
 			this.Shoot();
 			this.bulletCount--;
-			this.bulletEnable = false;
+			StartCoroutine("WaitForIt");		
+		} 
+		if (this.bulletCount <= 0){
+			StartCoroutine("WaitForReload");		
 		}
-		
-	    this.bulletTime += Time.deltaTime;
-	    if (this.bulletTime > BULLET_SHOOT_INTERVAL) {
-	        this.bulletTime = 0.0f;
-	        this.bulletEnable = true;
-	    }
-		
-		this.bulletChargeTime += Time.deltaTime;
-		if (this.bulletChargeTime > BULLET_CHARGE_INTERVAL) {
-			this.bulletChargeTime = 0.0f;
-			this.Reload();
-		}
+	}
+	IEnumerator WaitForIt(){		
+		this.bulletEnable = false;
+		yield return new WaitForSeconds(BULLET_SHOOT_INTERVAL);
+		this.bulletEnable = true;
+	}
+	IEnumerator WaitForReload(){		
+		yield return new WaitForSeconds(BULLET_CHARGE_INTERVAL);
+		this.bulletCount = BULLET_MAX_COUNT;
 	}
 	
 	//
@@ -86,11 +84,4 @@ public class Gun : MonoBehaviour
 		return direction.normalized;
 	}
 	
-	//
-	// 弾を装填する
-	//
-	void Reload()
-	{
-		this.bulletCount = BULLET_MAX_COUNT;
-	}
 }
