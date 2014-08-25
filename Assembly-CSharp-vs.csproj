@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\script\GameZone.cs" />
      <Compile Include="Assets\script\Gun.cs" />
+     <Compile Include="Assets\script\KillBullet.cs" />
      <Compile Include="Assets\script\ScrollTexture.cs" />
      <Compile Include="Assets\script\UnityChanController.cs" />
      <Compile Include="Assets\vendor\Detonator Explosion Framework\System\Detonator.cs" />
