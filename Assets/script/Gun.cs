@@ -35,15 +35,15 @@ public class Gun : MonoBehaviour
 			StartCoroutine("WaitForReload");		
 		}
 	}
-    IEnumerator WaitForIt(){		
-        this.bulletEnable = false;
-        yield return new WaitForSeconds(BULLET_SHOOT_INTERVAL);
-        this.bulletEnable = true;
-    }
-    IEnumerator WaitForReload(){		
-        yield return new WaitForSeconds(BULLET_CHARGE_INTERVAL);
+	IEnumerator WaitForIt(){		
+		this.bulletEnable = false;
+		yield return new WaitForSeconds(BULLET_SHOOT_INTERVAL);
+		this.bulletEnable = true;
+	}
+	IEnumerator WaitForReload(){		
+		yield return new WaitForSeconds(BULLET_CHARGE_INTERVAL);
 		this.bulletCount = BULLET_MAX_COUNT;
-    }
+	}
 	
 	//
 	// 射線を描く
