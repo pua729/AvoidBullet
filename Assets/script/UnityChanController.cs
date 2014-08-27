@@ -4,16 +4,11 @@ using System.Collections;
 public class UnityChanController : MonoBehaviour {
 	
 	public const int MAX_LIFE = 10;
-	public const int GAME_STATUS_WAIT = 0;
-	public const int GAME_STATUS_RUNNING = 1;
-	public const int GAME_STATUS_END = 2;
-	public const int GAME_STATUS_WIN = 3;
 	
 	public GameObject enemyGameObject;
 
 	private Animator animator;
 	protected int life = MAX_LIFE;
-	protected int game_status = GAME_STATUS_RUNNING;
 
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -22,15 +17,15 @@ public class UnityChanController : MonoBehaviour {
 	
 	void Update ()
 	{
-		switch (this.game_status) {
-		case GAME_STATUS_WAIT:
+		switch (GameManager.Instance.getGameStatus()) {
+		case GameManager.GAME_STATUS.WAIT:
 			break;
-		case GAME_STATUS_RUNNING:
+		case GameManager.GAME_STATUS.RUNNING:
 			this.runningControl();
 			break;
-		case GAME_STATUS_END:
+		case GameManager.GAME_STATUS.END:
 			break;
-		case GAME_STATUS_WIN:
+		case GameManager.GAME_STATUS.WIN:
 			break;
 		}
 	}
@@ -80,15 +75,12 @@ public class UnityChanController : MonoBehaviour {
 		this.life -= 1;
 
 		if (this.life < 0) {
-			this.loseGame();
+			GameManager.Instance.loseGame();
 		}
-	}
-	private void loseGame() {
-		this.game_status = GAME_STATUS_END;
 	}
 	private void Goal(Collider collider) {
 		if (this.enemyGameObject.name == collider.name) {
-			this.game_status = GAME_STATUS_WIN;
+			GameManager.Instance.winGame();
 			animator.SetBool("is_winning", true);
 		}
 	}
@@ -97,21 +89,23 @@ public class UnityChanController : MonoBehaviour {
 	// 描画処理
 	//
 	void OnGUI() {
-		switch (this.game_status) {
-		case GAME_STATUS_WAIT:
+		switch (GameManager.Instance.getGameStatus()) {
+		case GameManager.GAME_STATUS.WAIT:
 			break;
-		case GAME_STATUS_RUNNING:
+		case GameManager.GAME_STATUS.RUNNING:
 			GUI.Box (new Rect (0,0,100,50), "Life: " + this.life);		
 			break;
-		case GAME_STATUS_END:
+		case GameManager.GAME_STATUS.END:
 			GUI.Box (new Rect (Screen.width/2-50,Screen.height/2-25,100,50), "You lose");
 			if (GUI.Button(new Rect(Screen.width/2-40,Screen.height/2,80,20), "Restart")) {
+				GameManager.Instance.restartGame();
 				Application.LoadLevel("Sample");
 			}
 			break;
-		case GAME_STATUS_WIN:
+		case GameManager.GAME_STATUS.WIN:
 			GUI.Box (new Rect (Screen.width/2-50,Screen.height/2-25,100,50), "You win!");
 			if (GUI.Button(new Rect(Screen.width/2-40,Screen.height/2,80,20), "Restart")) {
+				GameManager.Instance.restartGame();
 				Application.LoadLevel("Sample");
 			}
 			break;
